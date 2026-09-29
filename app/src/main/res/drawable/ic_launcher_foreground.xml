@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Card Base / Rounded Board behind numbers -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 28,34 C 28,29 32,25 37,25 L 71,25 C 76,25 80,29 80,34 L 80,74 C 80,79 76,83 71,83 L 37,83 C 32,83 28,79 28,74 Z" />
+
+    <!-- Top Card Color Accent -->
+    <path
+        android:fillColor="#FEF08A"
+        android:pathData="M 32,29 L 76,29 C 78,29 79,30 79,32 L 79,40 L 29,40 L 29,32 C 29,30 30,29 32,29 Z" />
+
+    <!-- Number 1 (Orange/Coral) -->
+    <path
+        android:fillColor="#F97316"
+        android:pathData="M 37,48 L 41,45 L 43,45 L 43,67 L 39,67 L 39,50 L 36,52 Z" />
+    <path
+        android:fillColor="#F97316"
+        android:pathData="M 35,67 L 47,67 L 47,70 L 35,70 Z" />
+
+    <!-- Number 2 (Emerald Green) -->
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M 49,50 C 49,46.5 51.5,44 55,44 C 58.5,44 61,46.5 61,50 C 61,53.5 58,57 52,65 L 62,65 L 62,69 L 49,69 L 49,66 C 56,58.5 57.5,56 57.5,50 C 57.5,48.2 56.4,47 55,47 C 53.6,47 52.5,48.2 52.5,50 Z" />
+
+    <!-- Number 3 (Indigo/Blue) -->
+    <path
+        android:fillColor="#3B82F6"
+        android:pathData="M 64,45 L 75,45 L 69.5,53.5 C 73,54 75,56.5 75,60.5 C 75,65.5 70.8,69 64.5,69 C 62.5,69 60.5,68.2 59.5,67.2 L 61,64 C 62,64.8 63.2,65.5 64.8,65.5 C 67.5,65.5 71,63.8 71,60.5 C 71,57.2 68,55.5 64.5,55.5 L 64.5,52.2 C 67.5,52.2 70.5,50.8 70.5,48.2 C 70.5,46 68.8,44.8 66.5,44.8 C 65,44.8 63.8,45.4 63,46.2 Z" />
+
+    <!-- Playful Star at top right -->
+    <path
+        android:fillColor="#FBBF24"
+        android:pathData="M 68,26 L 69.5,30 L 73.5,30.5 L 70.5,33.2 L 71.5,37.2 L 68,35 L 64.5,37.2 L 65.5,33.2 L 62.5,30.5 L 66.5,30 Z" />
+
+    <!-- Little Sparkles as vector paths -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M 32,76 a 2,2 0 1,0 4,0 a 2,2 0 1,0 -4,0" />
+    <path
+        android:fillColor="#EC4899"
+        android:pathData="M 72,75 a 2.5,2.5 0 1,0 5,0 a 2.5,2.5 0 1,0 -5,0" />
+</vector>

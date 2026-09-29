@@ -1,0 +1,6 @@
+{
+  "name": "تعلم الأرقام",
+  "description": "تطبيق تفاعلي لتعليم الأرقام العربية والعد للأطفال مع ألعاب وأصوات وأنشطة رسم ممتعة",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
