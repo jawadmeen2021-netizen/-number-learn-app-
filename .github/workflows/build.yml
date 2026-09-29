@@ -24,14 +24,53 @@ jobs:
         with:
           gradle-version: '8.7'
 
-      - name: Prepare Environment & Create Debug Keystore
+      - name: Prepare Environment, Keystore and Google Services
         run: |
-          if [ -f ".env.example" ] && [ ! -f ".env" ]; then
+          # 1. إنشاء ملف البيئة
+          if [ -f ".env.example" ]; then
             cp .env.example .env
+          else
+            touch .env
           fi
-          keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
+
+          # 2. إنشاء مفتاح التوقيع
+          keytool -genkey -v -keystore "${GITHUB_WORKSPACE}/debug.keystore" -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
+
+          # 3. إنشاء ملف خدمات جوجل الشكلي لتخطي الفحص
+          mkdir -p app
+          cat << 'EOF' > app/google-services.json
+          {
+            "project_info": {
+              "project_number": "1234567890",
+              "project_id": "dummy-project",
+              "storage_bucket": "dummy.appspot.com"
+            },
+            "client": [
+              {
+                "client_info": {
+                  "mobilesdk_app_id": "1:1234567890:android:abcdef",
+                  "android_client_info": {
+                    "package_name": "com.aistudio.learnnumbers"
+                  }
+                },
+                "oauth_client": [],
+                "api_key": [
+                  {
+                    "current_key": "dummy_api_key"
+                  }
+                ],
+                "services": {}
+              }
+            ],
+            "configuration_version": "1"
+          }
+          EOF
 
       - name: Build Debug APK
+        env:
+          KEYSTORE_PATH: ${{ github.workspace }}/debug.keystore
+          STORE_PASS: android
+          KEY_PASSWORD: android
         run: |
           gradle assembleDebug --stacktrace
 
