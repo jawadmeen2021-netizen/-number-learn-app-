@@ -18,12 +18,12 @@ distribution: 'temurin'
 uses: gradle/actions/setup-gradle@v3
 with:
 gradle-version: '9.3.1'
-​- name: Generate Debug Keystore
-run: keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
-​- name: Create Environment File
-run: touch .env
+​- name: Create Keystore and Environment
+run:
+touch .env
+keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
 ​- name: Build Debug APK
-run: gradle assembleDebug --stacktrace
+run: ./gradlew assembleDebug --stacktrace
 ​- name: Upload APK Artifact
 uses: actions/upload-artifact@v4
 with:
